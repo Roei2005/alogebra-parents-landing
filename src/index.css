@@ -6,10 +6,15 @@
 html { 
   -webkit-font-smoothing: antialiased; 
   -moz-osx-font-smoothing: grayscale; 
-  /* ✅ הגדרת גלילה חלקה */
   scroll-behavior: smooth; 
 }
 
 /* Set logical direction defaults for RTL */
-:root { direction: rtl; font-size: 18px; } /* טיפה גדול יותר ונוח לקריאה */
-body { line-height: 1.75; }               /* ריווח שורות נעים */
+:root { 
+  direction: rtl; 
+  font-size: 18px; 
+}
+
+body { 
+  line-height: 1.75; 
+}
