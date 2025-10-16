@@ -6,7 +6,7 @@
 html { 
   -webkit-font-smoothing: antialiased; 
   -moz-osx-font-smoothing: grayscale; 
-  scroll-behavior: smooth; 
+  scroll-behavior: smooth; /* זה גורם להחלקה */
 }
 
 /* Set logical direction defaults for RTL */
