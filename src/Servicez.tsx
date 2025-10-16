@@ -77,7 +77,7 @@ export default function Servicez() {
           <div className="mt-8 flex justify-center">
             <a
               href="#system" {/* ✅ תיקון נתיב לסקשן הבא */}
-              className="inline-flex items-center gap-2 rounded-2xl border bg-sky-600 px-6 py-3 text-white font-semibold shadow-lg hover:bg-sky-700 transition" 
+              className="inline-flex items-center gap-2 rounded-2xl border bg-sky-600 px-6 py-3 text-white font-semibold shadow-lg hover:bg-sky-700 transition"
             >
               איך זה עובד? <ArrowDown className="h-5 w-5" />
             </a>
