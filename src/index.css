@@ -6,4 +6,5 @@
 html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
 /* Set logical direction defaults for RTL */
-:root { direction: rtl; font-size: 17px; }  /* מעלה בסיסית ~+6% בכל האתר */
+:root { direction: rtl; font-size: 18px; } /* טיפה גדול יותר ונוח לקריאה */
+body { line-height: 1.75; }               /* ריווח שורות נעים */
