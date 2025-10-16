@@ -67,15 +67,15 @@ export default function Servicez() {
             כלים לחיים.
           </p>
 
-          {/* CTA יחיד לבן-כחול עם חץ למטה */}
-          <div className="mt-8 flex justify-center">
-            <a
-              href="#offer"
-              className="inline-flex items-center gap-2 rounded-2xl border border-sky-300 bg-white px-6 py-3 text-sky-700 font-semibold shadow-sm hover:bg-sky-50 hover:border-sky-400 transition"
-            >
-              איך זה עובד? <ArrowDown className="h-5 w-5" />
-            </a>
-          </div>
+			{/* CTA יחיד לבן-כחול עם חץ למטה */}
+          <div className="mt-8 flex justify-center">
+            <a
+              href="#offer"
+              className="inline-flex items-center gap-2 rounded-2xl border bg-sky-600 px-6 py-3 text-white font-semibold shadow-lg hover:bg-sky-700 transition" 
+            >
+              איך זה עובד? <ArrowDown className="h-5 w-5" />
+            </a>
+          </div>
         </div>
       </section>
 
@@ -139,24 +139,24 @@ export default function Servicez() {
               נעים להכיר, רועי מזור
             </h3>
 
-            <p className="mt-4 text-lg md:text-xl text-slate-700 text-center md:text-right leading-relaxed">
-              <span className="font-semibold">
-                תאמינו או לא, עד גיל 16 פחדתי ממתמטיקה,
-              </span>{" "}
-              ראיתי שחור במבחנים והציונים לא היו בשיא. בכיתה י״א{" "}
-              <span className="font-extrabold text-slate-900">קרה שינוי</span>
-              , מורה מדהימה הפכה אותי מתלמיד שלא אוהב ללמוד למי שמחכה לשיעור הבא.
-            </p>
+			{/* פסקת סיפור אישי 1 */}
+            <p className="mt-4 text-lg md:text-xl text-slate-700 text-center md:text-right leading-relaxed">
+              תאמינו או לא, עד גיל 16 פחדתי ממתמטיקה.. ראיתי שחור במבחנים והציונים לא היו בשיא.
+              בכיתה יא' לקראת הבגרויות, הכל השתנה.
+              הגיעה מורה חדשה שגרמה לי להפוך מתלמיד שלא לומד לאחד שרק מחכה לשיעור הבא.
+              מאותו רגע התחיל מסע שמתפתח עד היום.
+            </p>
 
-            <p className="mt-4 text-lg md:text-xl text-slate-700 text-center md:text-right leading-relaxed">
-              היום אני לקראת סיום תואר ראשון בהוראת מתמטיקה. אני מביא גישה
-              עדכנית ושפה שמדברת אל תלמידים, וידע שמבוסס על מה שקורה בבתי הספר.
-              מתמטיקה בשבילי היא{" "}
-              <span className="font-extrabold text-slate-900">
-                זו שליחות לעזור, לקדם, ולהצליח
-              </span>
-              .
-            </p>
+            {/* פסקת סיפור אישי 2 (עדכון לגישה צעירה וטון של "שליחות") */}
+            <p className="mt-4 text-lg md:text-xl text-slate-700 text-center md:text-right leading-relaxed">
+              היום אני לקראת סיום תואר ראשון בהוראת מתמטיקה. אני מביא גישה
+              צעירה ושפה שמדברת אל תלמידים, וידע שמבוסס על מה שקורה בבתי הספר
+              בכל רגע נתון. מתמטיקה בשבילי היא קודם
+              <span className="font-extrabold text-slate-900">
+                שליחות - לעזור, לקדם, ולהצליח
+              </span>
+              .
+            </p>
           </div>
 
           {/* תמונת ״מספרים״ */}
