@@ -161,9 +161,9 @@ export default function Servicez() {
 
           {/* תמונת ״מספרים״ */}
           <figure className="rounded-3xl overflow-hidden shadow-md border border-slate-200">
-            <img
-              src="/73388517-d675-4a3b-bdec-a667582ebbb9.webp" 
-              alt="מספרים על לוח — למידה ממוקדת ומתודולוגית"
+		<img
+   		src="/73388517-d675-4a3b-bdec-a667582ebbb9.webp" 
+   		alt="מספרים על לוח — למידה ממוקדת ומתודולוגית"
               className="w-full h-full object-cover"
               loading="lazy"
             />
