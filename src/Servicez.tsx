@@ -8,9 +8,10 @@ import {
   ArrowDown,
 } from "lucide-react";
 
-// ⬇️ התמונות נמצאות ב-src (עדכן סיומות אם שונות אצלך)
+// ⭐️⭐️ זהו התיקון המרכזי: עדכון הנתיבים ושמות הקבצים לפי מבנה ה-GitHub (כולל ה-(1) והסיומת webp) ⭐️⭐️
 import studentImg from "./assets/pexels-karolina-grabowska-6256115.webp";
-import numbersImg from "./assets/73388517-d675-4a3b-bdec-a667582ebbb9.png";
+import numbersImg from "./assets/73388517-d675-4a3b-bdec-a667582ebbb9(1).webp";
+
 
 export default function Servicez() {
   const [showFloat, setShowFloat] = useState(false);
