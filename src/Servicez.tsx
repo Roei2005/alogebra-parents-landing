@@ -9,8 +9,8 @@ import {
 } from "lucide-react";
 
 // ⬇️ התמונות נמצאות ב-src (עדכן סיומות אם שונות אצלך)
-import studentImg from "./pexels-karolina-grabowska-6256115.webp";
-import numbersImg from "./73388517-d675-4a3b-bdec-a667582ebbb9.png";
+import studentImg from "./assets/pexels-karolina-grabowska-6256115.webp";
+import numbersImg from "./assets/73388517-d675-4a3b-bdec-a667582ebbb9.png";
 
 export default function Servicez() {
   const [showFloat, setShowFloat] = useState(false);
