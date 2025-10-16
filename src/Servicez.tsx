@@ -114,7 +114,7 @@ export default function Servicez() {
             {/* תמונת "התלמיד המיואש" */}
             <figure className="rounded-2xl overflow-hidden shadow-md border border-slate-200">
               <img
-                src={studentImg}
+                src="/pexels-karolina-grabowska-6256115.webp" 
                 alt="תלמיד מתוסכל בכיתה"
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -162,7 +162,7 @@ export default function Servicez() {
           {/* תמונת ״מספרים״ */}
           <figure className="rounded-3xl overflow-hidden shadow-md border border-slate-200">
             <img
-              src={numbersImg}
+              src="/73388517-d675-4a3b-bdec-a667582ebbb9.webp" 
               alt="מספרים על לוח — למידה ממוקדת ומתודולוגית"
               className="w-full h-full object-cover"
               loading="lazy"
