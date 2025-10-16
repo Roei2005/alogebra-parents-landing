@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Smooth fonts */
+/* Smooth fonts and scroll behavior */
 html { 
   -webkit-font-smoothing: antialiased; 
   -moz-osx-font-smoothing: grayscale; 
-  /* ⭐️ הוספה זו תגרום לגלילה חלקה לכפתורים המקושרים ב-# ⭐️ */
+  /* ✅ הגדרת גלילה חלקה */
   scroll-behavior: smooth; 
 }
 
