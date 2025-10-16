@@ -1,14 +1,35 @@
-import React from "react";
-import { Check, Clock, Users, Brain, Zap, MessageSquare, ArrowRight, Star } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { Check, Clock, Users, Brain, Zap, MessageSquare, ArrowRight, Star, Image as ImageIcon } from "lucide-react";
 
 /**
  * Alogebra — Parents Landing (Servicez), RTL
- * עדכונים: Rubik/Assistant, ניסוחים טבעיים, הסרת מקפים, כותרות+כפתורים ממורכזים,
- * CTA כל שני סקשנים, וואטסאפ ירוק בעברית, כפתור צף במובייל, טופס חובה, "איך זה עובד" (5 שלבים),
- * סקשן "זה לא אמור להיות ככה" ככותרת בלבד.
+ * עדכונים לפי הבקשה:
+ * - הסרת "זה לא אמור להיות ככה" + "ובאלוגברה זה באמת אחרת" והחלפתם בסקשיין על מערכת החינוך וההשלכות.
+ * - אחרי זה כותרת גדולה: "זה לא אמור להיות ככה." ואז "נעים להכיר, רועי מזור".
+ * - גופנים עקביים (Rubik לכותרות, Assistant לטקסט), כותרות/כפתורים ממורכזים.
+ * - כפתור צף תכלת, נמוך יותר ~20%, מופיע רק אחרי גלילה של 10%.
+ * - "אז איך זה עובד?" עם סימן שאלה.
+ * - שלב 5 כולל שורה נוספת.
+ * - שבירת שורות והדגשות חשובות במובייל.
+ * - שינוי טקסט בכפתור הטופס ל"נכתוב לכם בקרוב".
+ * - שינוי כותרת "מחיר פשוט והוגן" ל"どうאיך מתחילים?" (בעברית) – למעשה "איך מתחילים?".
+ * - הסרת מקפים והחלפתם בפסיקים.
  */
 
 export default function Servicez() {
+  const [showFloat, setShowFloat] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const scrolled = window.scrollY;
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      setShowFloat(scrolled / total > 0.10); // רק אחרי 10% גלילה
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <main className="min-h-screen bg-white text-slate-900" dir="rtl">
       {/* HERO */}
@@ -19,7 +40,11 @@ export default function Servicez() {
               <h1 className="font-heading text-center md:text-right text-4xl md:text-5xl font-extrabold leading-tight tracking-tight">
                 הילד חכם, אבל במתמטיקה משהו פשוט לא מתחבר?
               </h1>
-              <p className="mt-5 text-center md:text-right text-lg md:text-xl text-slate-700">
+              {/* שורה מודגשת נפרדת: "זה לא חייב להיות ככה" */}
+              <p className="mt-3 text-center md:text-right font-heading font-extrabold text-xl md:text-2xl text-sky-700">
+                זה לא חייב להיות ככה
+              </p>
+              <p className="mt-4 text-center md:text-right text-lg md:text-xl text-slate-700">
                 באלוגברה לומדים מתמטיקה בצורה פשוטה וברורה, עם הסברים אנושיים, קצב שמתאים לילד שלכם, וליווי שמחזק ביטחון.
               </p>
 
@@ -32,9 +57,9 @@ export default function Servicez() {
                 </a>
               </div>
 
-              <ul className="mt-6 grid grid-cols-2 gap-3 text-sm text-slate-600">
+              <ul className="mt-6 grid grid-cols-2 gap-3 text-base text-slate-700">
                 <li className="flex items-center gap-2 justify-center md:justify-start"><Check className="h-4 w-4 text-sky-600"/>שיעורים פרטיים בזום, אחד על אחד</li>
-                <li className="flex items-center gap-2 justify-center md:justify-start"><Check className="h-4 w-4 text-sky-600"/>מותאם אישית לקצב ולמטרות</li>
+                <li className="flex items-center gap-2 justify-center md:justify-start"><Check className="h-4 w-4 text-sky-600"/>מותאם אישית לקצב, למטרות</li>
                 <li className="flex items-center gap-2 justify-center md:justify-start"><Check className="h-4 w-4 text-sky-600"/>ליווי אישי גם בין השיעורים</li>
                 <li className="flex items-center gap-2 justify-center md:justify-start"><Check className="h-4 w-4 text-sky-600"/>שיעור ניסיון חינם</li>
               </ul>
@@ -50,7 +75,7 @@ export default function Servicez() {
             </div>
           </div>
 
-          {/* CTA אחרי 2 סקשנים */}
+          {/* CTA ראשון */}
           <div className="mt-10 flex justify-center">
             <a href="#contact" className="inline-flex items-center gap-2 rounded-xl bg-sky-600 px-6 py-3 text-white font-semibold shadow-sm hover:bg-sky-700 transition">
               לשיעור ניסיון בחינם <ArrowRight className="h-5 w-5" />
@@ -59,38 +84,37 @@ export default function Servicez() {
         </div>
       </section>
 
-      {/* PROBLEM — כותרת בלבד */}
-      <section id="problem" className="border-t border-slate-100 bg-white">
+      {/* NEW: מערכת החינוך והבעיה */}
+      <section id="system" className="bg-white border-t border-slate-100">
         <div className="mx-auto max-w-6xl px-4 py-16 md:py-20">
-          <h2 className="font-heading text-3xl md:text-4xl font-extrabold text-center tracking-tight">זה לא אמור להיות ככה</h2>
+          <h2 className="font-heading text-3xl md:text-4xl font-extrabold text-center tracking-tight">
+            מערכת החינוך עדיין לא קלטה שהעולם השתנה
+          </h2>
+          <div className="mt-8 grid items-start gap-8 md:grid-cols-2">
+            <ul className="space-y-4 text-slate-700 text-lg">
+              <li className="flex items-start gap-3"><Check className="mt-1 h-5 w-5 text-sky-600"/>המורים רצים בחומר, ורק מי שמבין מהר שורד</li>
+              <li className="flex items-start gap-3"><Check className="mt-1 h-5 w-5 text-sky-600"/>מי שצריך רגע לחשוב הולך לאיבוד</li>
+              <li className="flex items-start gap-3"><Check className="mt-1 h-5 w-5 text-sky-600"/>אין התאמה אמיתית לקצב ולסגנון של כל תלמיד</li>
+            </ul>
+            {/* תמונה מיואשת */}
+            <div className="aspect-[16/10] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm flex items-center justify-center">
+              <span className="text-slate-400 flex items-center gap-2"><ImageIcon className="h-5 w-5"/> [ תמונה: תלמיד מיואש / כיתה עמוסה ]</span>
+            </div>
+          </div>
+
+          <h3 className="mt-10 font-heading text-2xl md:text-3xl font-extrabold text-center tracking-tight">התוצאה?</h3>
+          <p className="mt-3 max-w-3xl mx-auto text-center text-lg text-slate-700">
+            ביטחון יורד, תחושות ש״מתמטיקה זה לא בשבילי״, זיכרון לא טוב מהמקצוע.
+          </p>
         </div>
       </section>
 
-      {/* SOLUTION קצר + אפשרות פרונטלי + זום */}
+      {/* כותרת ביניים גדולה לפני ההיכרות */}
       <section className="bg-slate-50">
-        <div className="mx-auto max-w-6xl px-4 py-16 md:py-20">
-          <h3 className="font-heading text-3xl md:text-4xl font-extrabold text-center tracking-tight">ובאלוגברה זה באמת אחרת</h3>
-          <p className="mt-4 max-w-3xl mx-auto text-center text-slate-700">
-            שיעורים אחד על אחד בזום, תוכנית מותאמת לכל תלמיד, וליווי שמחזיר ביטחון. קיימת אפשרות לשיעור פרונטלי בנתניה.
-          </p>
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-4">
-            <CardStat title="1 על 1 בזום" text="מקסימום קשב ואפקטיביות"/>
-            <CardStat title="תוכנית מותאמת" text="מסלול מדויק לכל תלמיד"/>
-            <CardStat title="ליווי בין שיעורים" text="שאלות, תזכורות ותרגול קל"/>
-            <CardStat title="כלים לביטחון" text="פוקוס, ניהול לחץ והצלחה"/>
-          </div>
-
-          <p className="mt-8 max-w-3xl mx-auto text-center text-slate-700">
-            שיעור בזום יכול להישמע מאתגר, יש לנו מערכת מסודרת ונוחה. שילוב של כלים מתמטיים ברורים ותוכנית עבודה מדויקת גורם ללמידה להיות חווייתית ויעילה, גם מרחוק.
-          </p>
-
-          {/* CTA אחרי 2 סקשנים */}
-          <div className="mt-10 flex justify-center">
-            <a href="#contact" className="inline-flex items-center gap-2 rounded-xl bg-sky-600 px-6 py-3 text-white font-semibold shadow-sm hover:bg-sky-700 transition">
-              לשיעור ניסיון בחינם <ArrowRight className="h-5 w-5" />
-            </a>
-          </div>
+        <div className="mx-auto max-w-6xl px-4 py-14 md:py-16">
+          <h2 className="font-heading text-3xl md:text-4xl font-extrabold text-center tracking-tight">
+            זה לא אמור להיות ככה.
+          </h2>
         </div>
       </section>
 
@@ -100,14 +124,17 @@ export default function Servicez() {
           <div className="grid items-center gap-8 md:grid-cols-2">
             <div>
               <h3 className="font-heading text-3xl md:text-4xl font-extrabold text-center md:text-right tracking-tight">נעים להכיר, רועי מזור</h3>
-              <div className="mt-4 space-y-3 text-slate-700">
+
+              {/* משפט חשוב מודגש ובשורה נפרדת */}
+              <p className="mt-4 text-center md:text-right font-heading font-extrabold text-xl md:text-2xl text-slate-900">
+                למה בחרתי להיות מורה כבר בגיל 20, ולמה שתסמכו דווקא עליי?
+              </p>
+
+              <div className="mt-3 space-y-3 text-slate-700 text-lg">
                 <p className="text-center md:text-right">
-                  אתם יכולים להיות רגועים, את החומר במתמטיקה אני יודע מצוין, אבל מה שיותר מעניין זו השאלה למה בחרתי להיות מורה כבר בגיל 20, ולמה שתסמכו דווקא עליי.
+                  אתם יכולים להיות רגועים, את החומר במתמטיקה אני יודע מצוין. מאז שאני זוכר את עצמי, לעזור לאחרים זה הדבר שהכי חשוב לי, בבית הספר הייתי זה שמסביר לחברים לפני מבחנים ועוזר למורים בכיתה.
                 </p>
                 <p className="text-center md:text-right">
-                  מאז שאני זוכר את עצמי, לעזור לאחרים זה הדבר שהכי חשוב לי. בבית הספר הייתי זה שמסביר לחברים לפני מבחנים ועוזר למורים בכיתה, גיליתי כמה סיפוק יש בלראות מישהו מבין בזכותך.
-                </p>
-                <p className="text-center md:text-right font-semibold">
                   היום אני לקראת סיום תואר ראשון בהוראת מתמטיקה, מביא גישה עדכנית ושפה שמדברת עם תלמידים, ידע שמבוסס על מה שקורה בבתי הספר.
                 </p>
               </div>
@@ -134,9 +161,18 @@ export default function Servicez() {
       <section className="bg-slate-50">
         <div className="mx-auto max-w-6xl px-4 py-16 md:py-20">
           <h3 className="font-heading text-3xl md:text-4xl font-extrabold text-center tracking-tight">אז למה דווקא אני?</h3>
-          <p className="mt-3 max-w-3xl mx-auto text-center text-slate-700">
-            חלק יחשבו שהגיל הוא חיסרון, האמת שזה היתרון הכי גדול. אני יודע איפה התלמידים נמצאים היום, מה מצופה מהם, ואיך ללמד בצורה ברורה שעובדת.
+
+          {/* שורה קריטית – מודגשת ובשורה נפרדת, עם שבירת שורה בנייד */}
+          <p className="mt-3 max-w-3xl mx-auto text-center text-lg text-slate-800">
+            <span className="font-heading font-extrabold text-xl md:text-2xl">
+              חלק יחשבו שהגיל הוא חיסרון, האמת שזה היתרון הכי גדול שלי
+            </span>
+            <br className="sm:hidden" />
+            <span className="block mt-3 text-slate-700">
+              אני יודע איפה התלמידים נמצאים היום, מה מצופה מהם, ואיך ללמד בצורה ברורה שעובדת.
+            </span>
           </p>
+
           <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-4">
             <Tag title="חיבור אנושי מהדקה הראשונה"/>
             <Tag title="שיטה שמביאה תוצאות"/>
@@ -149,7 +185,7 @@ export default function Servicez() {
       {/* HOW IT WORKS */}
       <section id="offer" className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-16 md:py-20">
-          <h3 className="font-heading text-3xl md:text-4xl font-extrabold text-center tracking-tight">אז איך זה עובד</h3>
+          <h3 className="font-heading text-3xl md:text-4xl font-extrabold text-center tracking-tight">אז איך זה עובד?</h3>
 
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             <Step number={1} title="שיחת היכרות קצרה" text="מזהים את הקשיים ואת נקודת הפתיחה"/>
@@ -159,7 +195,7 @@ export default function Servicez() {
 
           <div className="mt-6 grid gap-6 md:grid-cols-2">
             <Step number={4} title="ליווי אישי" text="השיעור לא נגמר אחרי 50 דקות, זמינים 24/7 לכל שאלה"/>
-            <Step number={5} title="מצליחים!" text="ביטחון, הבנה וציונים עולים"/>
+            <Step number={5} title="מצליחים!" text="ביטחון עצמי, כלים להתמודדות וציונים גבוהים"/>
           </div>
 
           {/* CTA */}
@@ -171,10 +207,10 @@ export default function Servicez() {
         </div>
       </section>
 
-      {/* PRICING — כחול, טקסט לבן מודגש */}
+      {/* PRICING — שינוי הכותרת ל"איך מתחילים?" */}
       <section id="pricing" className="bg-gradient-to-b from-sky-600 to-sky-700">
         <div className="mx-auto max-w-6xl px-4 py-16 md:py-20 text-white">
-          <h3 className="font-heading text-3xl md:text-4xl font-extrabold text-center tracking-tight">מחיר פשוט והוגן</h3>
+          <h3 className="font-heading text-3xl md:text-4xl font-extrabold text-center tracking-tight">איך מתחילים?</h3>
 
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             <div className="rounded-3xl border border-white/30 p-7 shadow-sm bg-white/0">
@@ -234,7 +270,7 @@ export default function Servicez() {
       <section id="contact" className="bg-white">
         <div className="mx-auto max-w-2xl px-4 py-14">
           <h4 className="font-heading text-2xl md:text-3xl font-extrabold text-center tracking-tight">טופס קצר, דקה וסיימנו</h4>
-          <form className="mt-8 space-y-5" onSubmit={(e) => { e.preventDefault(); alert("תודה, נחזור אליך בהקדם"); }}>
+          <form className="mt-8 space-y-5" onSubmit={(e) => { e.preventDefault(); alert("תודה! נכתוב לכם בקרוב"); }}>
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1">שם מלא</label>
               <input required type="text" className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-sky-500"/>
@@ -253,7 +289,7 @@ export default function Servicez() {
             </div>
             <div className="pt-2 flex justify-center">
               <button type="submit" className="inline-flex items-center gap-2 rounded-xl bg-sky-600 px-6 py-3 text-white font-semibold shadow-sm hover:bg-sky-700 transition">
-                לשיעור ניסיון בחינם <ArrowRight className="h-5 w-5"/>
+                נכתוב לכם בקרוב <ArrowRight className="h-5 w-5"/>
               </button>
             </div>
           </form>
@@ -261,24 +297,26 @@ export default function Servicez() {
       </section>
 
       {/* FOOTER MINI */}
-      <footer className="border-t border-slate-100 bg-white">
+      <footer className="border-top border-slate-100 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-10 text-sm text-slate-500">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <p>© {new Date().getFullYear()} אלוגברה, מתמטיקה בראש אחר</p>
             <nav className="flex items-center gap-5">
               <a href="#about" className="hover:text-slate-700">עליי</a>
-              <a href="#offer" className="hover:text-slate-700">איך זה עובד</a>
-              <a href="#pricing" className="hover:text-slate-700">מחיר</a>
+              <a href="#offer" className="hover:text-slate-700">איך זה עובד?</a>
+              <a href="#pricing" className="hover:text-slate-700">איך מתחילים?</a>
               <a href="#testimonials" className="hover:text-slate-700">המלצות</a>
             </nav>
           </div>
         </div>
       </footer>
 
-      {/* כפתור צף במובייל בלבד */}
+      {/* כפתור צף במובייל בלבד — תכלת, למטה יותר, מוצג רק אחרי 10% גלילה */}
       <a
         href="#contact"
-        className="sm:hidden fixed right-3 top-1/2 translate-y-1/3 z-50 inline-flex items-center gap-2 rounded-full bg-sky-600 px-4 py-3 text-white font-semibold shadow-lg"
+        className={`sm:hidden fixed right-3 top-[65%] z-50 inline-flex items-center gap-2 rounded-full bg-sky-400 px-4 py-3 text-white font-semibold shadow-lg transition-all ${
+          showFloat ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
         aria-label="קביעת שיעור מהיר"
       >
         קביעת שיעור מהיר <ArrowRight className="h-5 w-5" />
@@ -288,27 +326,11 @@ export default function Servicez() {
 }
 
 /* ——— Components ——— */
-function Feature({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) {
-  return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-center">
-      <div className="flex items-center justify-center gap-2 text-sky-700">{icon}<span className="font-semibold">{title}</span></div>
-      <p className="mt-2 text-sm text-slate-600">{text}</p>
-    </div>
-  );
-}
-function CardStat({ title, text }: { title: string; text: string }) {
-  return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-center">
-      <h4 className="font-semibold">{title}</h4>
-      <p className="mt-1 text-sm text-slate-600">{text}</p>
-    </div>
-  );
-}
 function Bulleted({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2 text-slate-700">
       <Check className="mt-0.5 h-5 w-5 flex-none text-sky-600"/>
-      <span>{text}</span>
+      <span className="text-base">{text}</span>
     </div>
   );
 }
@@ -323,8 +345,8 @@ function Step({ number, title, text }: { number: number; title: string; text: st
   return (
     <div className="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
       <div className="absolute -top-3 left-4 flex h-8 w-8 items-center justify-center rounded-full bg-sky-600 text-white font-bold shadow">{number}</div>
-      <h4 className="text-lg font-semibold text-center md:text-right">{title}</h4>
-      <p className="mt-2 text-sm text-slate-600 text-center md:text-right">{text}</p>
+      <h4 className="text-lg md:text-xl font-semibold text-center md:text-right">{title}</h4>
+      <p className="mt-2 text-base text-slate-700 text-center md:text-right">{text}</p>
     </div>
   );
 }
@@ -334,7 +356,7 @@ function TestimonialCard({ quote, name }: { quote: string; name: string }) {
       <div className="flex items-center gap-1 text-yellow-500" aria-hidden>
         <Star className="h-4 w-4"/><Star className="h-4 w-4"/><Star className="h-4 w-4"/><Star className="h-4 w-4"/><Star className="h-4 w-4"/>
       </div>
-      <blockquote className="mt-3 text-slate-800">“{quote}”</blockquote>
+      <blockquote className="mt-3 text-slate-800 text-base md:text-lg">“{quote}”</blockquote>
       <figcaption className="mt-3 text-sm text-slate-500">{name}</figcaption>
     </figure>
   );
