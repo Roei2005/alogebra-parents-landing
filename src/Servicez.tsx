@@ -8,10 +8,8 @@ import {
   ArrowDown,
 } from "lucide-react";
 
-// ⭐️⭐️ זהו התיקון המרכזי: עדכון הנתיבים ושמות הקבצים לפי מבנה ה-GitHub (כולל ה-(1) והסיומת webp) ⭐️⭐️
-import studentImg from "./assets/pexels-karolina-grabowska-6256115.webp";
-import numbersImg from "./assets/73388517-d675-4a3b-bdec-a667582ebbb9.webp"; // ⭐️ התיקון הוא כאן! ⭐️
-
+// ❌ שורות הייבוא של התמונות נמחקו כדי למנוע שגיאות בנייה.
+//    התמונות נטענות ישירות מתיקיית ה-public באמצעות נתיב מוחלט (/).
 
 export default function Servicez() {
   const [showFloat, setShowFloat] = useState(false);
@@ -30,15 +28,23 @@ export default function Servicez() {
 
   return (
     <main dir="rtl" className="min-h-screen bg-white text-slate-900">
-      {/* ---------- SEO ---------- */}
+      {/* ---------- SEO (שיפורים טכניים) ---------- */}
       <Helmet>
         <html lang="he" dir="rtl" />
         <title>אלוגברה — שיעורי מתמטיקה פרטיים אונליין, בקצב של הילד</title>
+        
+        {/* שיפור SEO: הוספת robots ו-canonical */}
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="[הכנס את כתובת ה-URL הסופית של האתר כאן]" />
+        
         <meta
           name="description"
           content="אלוגברה: מתמטיקה בגובה העיניים. שיעורים פרטיים בזום, אחד על אחד, שיטה שמביאה תוצאות, ליווי בין שיעורים וביטחון שעולה. שיעור ניסיון חינם."
         />
         <meta name="keywords" content="מורה פרטי למתמטיקה, שיעורים פרטיים אונליין, מתמטיקה זום, חטיבה, תיכון, בגרות במתמטיקה" />
+        
+        {/* שיפור OG: הוספת og:locale */}
+        <meta property="og:locale" content="he_IL" />
         <meta property="og:title" content="אלוגברה — שיעורי מתמטיקה פרטיים אונליין" />
         <meta
           property="og:description"
@@ -67,15 +73,15 @@ export default function Servicez() {
             כלים לחיים.
           </p>
 
-			{/* CTA יחיד לבן-כחול עם חץ למטה */}
-          <div className="mt-8 flex justify-center">
-            <a
-              href="#offer"
-              className="inline-flex items-center gap-2 rounded-2xl border bg-sky-600 px-6 py-3 text-white font-semibold shadow-lg hover:bg-sky-700 transition" 
-            >
-              איך זה עובד? <ArrowDown className="h-5 w-5" />
-            </a>
-          </div>
+          {/* CTA יחיד - כחול מלא, עם קישור לסקשן הבא (#system) */}
+          <div className="mt-8 flex justify-center">
+            <a
+              href="#system" {/* ✅ תיקון נתיב לסקשן הבא */}
+              className="inline-flex items-center gap-2 rounded-2xl border bg-sky-600 px-6 py-3 text-white font-semibold shadow-lg hover:bg-sky-700 transition" 
+            >
+              איך זה עובד? <ArrowDown className="h-5 w-5" />
+            </a>
+          </div>
         </div>
       </section>
 
@@ -114,7 +120,7 @@ export default function Servicez() {
             {/* תמונת "התלמיד המיואש" */}
             <figure className="rounded-2xl overflow-hidden shadow-md border border-slate-200">
               <img
-                src="/pexels-karolina-grabowska-6256115.webp" 
+                src="/pexels-karolina-grabowska-6256115.webp"
                 alt="תלמיד מתוסכל בכיתה"
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -139,31 +145,31 @@ export default function Servicez() {
               נעים להכיר, רועי מזור
             </h3>
 
-			{/* פסקת סיפור אישי 1 */}
-            <p className="mt-4 text-lg md:text-xl text-slate-700 text-center md:text-right leading-relaxed">
-              תאמינו או לא, עד גיל 16 פחדתי ממתמטיקה.. ראיתי שחור במבחנים והציונים לא היו בשיא.
-              בכיתה יא' לקראת הבגרויות, הכל השתנה.
-              הגיעה מורה חדשה שגרמה לי להפוך מתלמיד שלא לומד לאחד שרק מחכה לשיעור הבא.
-              מאותו רגע התחיל מסע שמתפתח עד היום.
-            </p>
+            {/* פסקת סיפור אישי 1 - טקסט מעודכן */}
+            <p className="mt-4 text-lg md:text-xl text-slate-700 text-center md:text-right leading-relaxed">
+              תאמינו או לא, עד גיל 16 פחדתי ממתמטיקה.. ראיתי שחור במבחנים והציונים לא היו בשיא.
+              בכיתה יא' לקראת הבגרויות, הכל השתנה.
+              הגיעה מורה חדשה שגרמה לי להפוך מתלמיד שלא לומד לאחד שרק מחכה לשיעור הבא.
+              מאותו רגע התחיל מסע שמתפתח עד היום.
+            </p>
 
-            {/* פסקת סיפור אישי 2 (עדכון לגישה צעירה וטון של "שליחות") */}
-            <p className="mt-4 text-lg md:text-xl text-slate-700 text-center md:text-right leading-relaxed">
-              היום אני לקראת סיום תואר ראשון בהוראת מתמטיקה. אני מביא גישה
-              צעירה ושפה שמדברת אל תלמידים, וידע שמבוסס על מה שקורה בבתי הספר
-              בכל רגע נתון. מתמטיקה בשבילי היא קודם
-              <span className="font-extrabold text-slate-900">
-                שליחות - לעזור, לקדם, ולהצליח
-              </span>
-              .
-            </p>
+            {/* פסקת סיפור אישי 2 - טקסט מעודכן */}
+            <p className="mt-4 text-lg md:text-xl text-slate-700 text-center md:text-right leading-relaxed">
+              היום אני לקראת סיום תואר ראשון בהוראת מתמטיקה. אני מביא גישה
+              צעירה ושפה שמדברת אל תלמידים, וידע שמבוסס על מה שקורה בבתי הספר
+              בכל רגע נתון. מתמטיקה בשבילי היא קודם
+              <span className="font-extrabold text-slate-900">
+                שליחות - לעזור, לקדם, ולהצליח
+              </span>
+              .
+            </p>
           </div>
 
           {/* תמונת ״מספרים״ */}
           <figure className="rounded-3xl overflow-hidden shadow-md border border-slate-200">
-		<img
-   		src="/73388517-d675-4a3b-bdec-a667582ebbb9.webp" 
-   		alt="מספרים על לוח — למידה ממוקדת ומתודולוגית"
+            <img
+              src="/73388517-d675-4a3b-bdec-a667582ebbb9.webp"
+              alt="מספרים על לוח — למידה ממוקדת ומתודולוגית"
               className="w-full h-full object-cover"
               loading="lazy"
             />
