@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { X, Check, ArrowRight } from "lucide-react";
 
-// תמונת התלמיד המיואש (להניח ב- src/assets/)
+// תמונת "תלמיד מיואש" — לשים ב- src/assets/
 import studentFrustrated from "./assets/pexels-karolina-grabowska-6256115.webp";
 
 export default function Servicez() {
@@ -12,37 +12,51 @@ export default function Servicez() {
     const onScroll = () => {
       const scrolled = window.scrollY;
       const total = document.documentElement.scrollHeight - window.innerHeight;
-      setShowFloat(scrolled / total > 0.1); // להציג כפתור צף לאחר ~10% גלילה
+      setShowFloat(scrolled / total > 0.1);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // אם שינית את הסיומת (png/jpg/webp) — עדכן כאן:
+  const teacherExtraImg = "/73388517-d675-4a3b-bdec-a667582ebbb9 (1).png";
+
   return (
     <main dir="rtl" className="min-h-screen bg-white text-slate-900">
-      {/* ===== HERO (הפתיח המקורי) ===== */}
-      <section className="bg-gradient-to-b from-sky-50 to-white py-20 md:py-24">
+      {/* ===== HERO (פתיח) ===== */}
+      <section className="bg-gradient-to-b from-sky-50 to-white py-16 md:py-18">
         <div className="max-w-5xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900">
             הילד חכם, אבל במתמטיקה משהו פשוט לא מתחבר?
           </h1>
-          <p className="mt-4 text-xl font-semibold text-sky-700">זה לא חייב להיות ככה</p>
-          <p className="mt-4 text-lg md:text-xl text-slate-700 max-w-2xl mx-auto leading-relaxed">
-            באלוגברה לומדים מתמטיקה בצורה פשוטה וברורה, עם הסברים אנושיים,
-            קצב שמתאים לילד שלכם וליווי שמחזק ביטחון.
-          </p>
 
-          <div className="mt-8 flex justify-center gap-4 flex-wrap">
+          {/* קופי חדש לפי הבקשה */}
+          <div className="mt-5 space-y-2 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-slate-800">לא מצליחים לעזור לילד בשיעורים?</p>
+            <p className="text-lg md:text-xl text-slate-800">החומר של הילד נהיה קשה.</p>
+            <p className="text-xl md:text-2xl font-extrabold text-slate-900">אתם כבר לא מצליחים לעזור לילד.</p>
+            <p className="text-xl md:text-2xl font-extrabold text-slate-900">
+              חיפשתם מורה פרטי, אבל כולם יקרים והילד מיואש?
+            </p>
+            <p className="text-lg md:text-xl font-semibold text-sky-700">הגעתם למקום הנכון.</p>
+            <p className="pt-1 text-slate-600">
+              בחצי דקה הקרובה תגלו את השיטה שעזרה למאות תלמידים לשפר את הציונים שלהם, לבנות ביטחון עצמי
+              ולקבל כלים לחיים.
+            </p>
+          </div>
+
+          {/* כפתורים חדשים */}
+          <div className="mt-6 flex justify-center gap-3 flex-wrap">
             <a
-              href="#contact"
-              className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white font-semibold px-6 py-3 rounded-xl shadow-sm transition"
+              href="#start"
+              className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white font-semibold px-5 py-3 rounded-xl shadow-sm transition"
             >
-              לשיעור ניסיון בחינם <ArrowRight className="h-5 w-5" />
+              מה ההצעה שלכם? <ArrowRight className="h-5 w-5" />
             </a>
             <a
               href="#how"
-              className="inline-flex items-center gap-2 border border-slate-300 px-6 py-3 rounded-xl font-semibold hover:bg-slate-50 transition"
+              className="inline-flex items-center gap-2 border border-slate-300 px-5 py-3 rounded-xl font-semibold hover:bg-slate-50 transition"
             >
               איך זה עובד?
             </a>
@@ -50,16 +64,16 @@ export default function Servicez() {
         </div>
       </section>
 
-      {/* ===== מערכת החינוך (X אדומים + תמונת תלמיד) ===== */}
-      <section id="system" className="bg-white py-20 border-t border-slate-100">
+      {/* ===== מערכת החינוך ===== */}
+      <section id="system" className="bg-white py-14 md:py-16 border-t border-slate-100">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-extrabold text-center text-slate-900">
-            מערכת החינוך כנראה עדיין לא הבינה שהעולם השתנה
+            מערכת החינוך כנראה עדיין לא הבינה שהעולם השתנה..
           </h2>
 
-          <div className="mt-10 grid md:grid-cols-2 gap-10 items-center">
+          <div className="mt-8 grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <ul className="space-y-5 text-lg md:text-xl text-slate-700 leading-relaxed">
+              <ul className="space-y-4 text-lg md:text-xl text-slate-700 leading-relaxed">
                 <li className="flex items-start gap-3">
                   <X className="mt-1 h-6 w-6 text-red-500" />
                   <span>המורים רצים בחומר, ורק מי שמבין מהר שורד</span>
@@ -74,7 +88,7 @@ export default function Servicez() {
                 </li>
               </ul>
 
-              <h3 className="mt-10 text-2xl font-extrabold text-center md:text-right text-slate-900">
+              <h3 className="mt-8 text-2xl font-extrabold text-center md:text-right text-slate-900">
                 התוצאה?
               </h3>
               <p className="mt-2 text-center md:text-right text-lg text-slate-700 leading-relaxed">
@@ -83,62 +97,44 @@ export default function Servicez() {
             </div>
 
             <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200">
-              <img
-                src={studentFrustrated}
-                alt="תלמיד מתוסכל בכיתה"
-                className="w-full h-full object-cover"
-              />
+              <img src={studentFrustrated} alt="תלמיד מתוסכל בכיתה" className="w-full h-full object-cover" />
             </div>
-          </div>
-
-          {/* CTA אחרי 2 סקשנים */}
-          <div className="mt-10 flex justify-center">
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white font-semibold px-6 py-3 rounded-xl shadow-sm transition"
-            >
-              לשיעור ניסיון בחינם <ArrowRight className="h-5 w-5" />
-            </a>
           </div>
         </div>
       </section>
 
-      {/* ===== נעים להכיר, רועי מזור (טקסט בלבד) ===== */}
-      <section id="about" className="bg-sky-50 py-20 border-t border-slate-100">
-        <div className="max-w-4xl mx-auto px-4">
-          <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 text-center">
-            נעים להכיר, רועי מזור
+      {/* ===== כותרת מעבר ===== */}
+      <section className="bg-sky-50 py-8 md:py-10 border-t border-slate-100">
+        <div className="max-w-5xl mx-auto px-4">
+          <h3 className="text-center text-2xl md:text-3xl font-extrabold text-sky-700">
+            זה לא חייב להיות ככה.
           </h3>
+        </div>
+      </section>
 
-        <p className="mt-3 text-lg font-semibold text-sky-700 text-center">
-            תאמינו או לא, עד גיל 16 לא הבנתי מתמטיקה
-          </p>
+      {/* ===== נעים להכיר (ללא כפתור) ===== */}
+      <section id="about" className="bg-sky-50 py-14 md:py-16">
+        <div className="max-w-4xl mx-auto px-4">
+          <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 text-center">נעים להכיר, רועי מזור</h3>
+
+          <p className="mt-3 text-lg font-semibold text-sky-700 text-center">תאמינו או לא, עד גיל 16 לא הבנתי מתמטיקה</p>
 
           <div className="mt-4 space-y-4 text-[1.1rem] text-slate-700 leading-relaxed text-center">
             <p>
-              חשבתי שאני גרוע בזה, והציונים לא היו בשיא. בכיתה י״א קרה שינוי — מורה מדהימה
-              הפכה אותי מתלמיד שלא אוהב ללמוד למי שמחכה לשיעור הבא.
+              חשבתי שאני גרוע בזה, והציונים לא היו בשיא. בכיתה י״א{" "}
+              <span className="font-bold text-slate-900">קרה שינוי</span>. מורה מדהימה הפכה אותי מתלמיד שלא אוהב
+              ללמוד למי שמחכה לשיעור הבא.
             </p>
             <p>
-              המטרה שלי היא להיות המורה הזה בשביל הילד שלכם. מבחינתי מתמטיקה היא לא רק מקצוע —
-              זו שליחות לעזור, לקדם, ולהצליח.
+              המטרה שלי היא להיות המורה הזה בשביל הילד שלכם. מבחינתי מתמטיקה היא לא רק מקצוע,
+              <span className="font-bold text-slate-900"> זו שליחות לעזור, לקדם, ולהצליח.</span>
             </p>
-          </div>
-
-          {/* CTA נוסף */}
-          <div className="mt-10 flex justify-center">
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white font-semibold px-6 py-3 rounded-xl shadow-sm transition"
-            >
-              לשיעור ניסיון בחינם <ArrowRight className="h-5 w-5" />
-            </a>
           </div>
         </div>
       </section>
 
-      {/* ===== למה דווקא אני? ===== */}
-      <section className="bg-white py-20 border-t border-slate-100">
+      {/* ===== למה דווקא אני + מקום לתמונה + כפתור ===== */}
+      <section className="bg-white py-14 md:py-16 border-t border-slate-100">
         <div className="max-w-6xl mx-auto px-4">
           <h3 className="text-3xl md:text-4xl font-extrabold text-center">אז למה דווקא אני?</h3>
 
@@ -158,11 +154,30 @@ export default function Servicez() {
             <Bullet text="מעקב והתאמות בדרך" />
             <Bullet text="תקשורת שקופה עם הורים" />
           </div>
+
+          {/* מקום לתמונה + הוספת התמונה שנתת (אם מיקום/סיומת שונים — עדכן את המחרוזת teacherExtraImg) */}
+          <div className="mt-8 rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+            <img
+              src={teacherExtraImg}
+              alt="תמונה נוספת"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* CTA נוסף */}
+          <div className="mt-8 flex justify-center">
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white font-semibold px-6 py-3 rounded-xl shadow-sm transition"
+            >
+              לשיעור ניסיון בחינם <ArrowRight className="h-5 w-5" />
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* ===== איך זה עובד? ===== */}
-      <section id="how" className="bg-white py-20 border-t border-slate-100">
+      {/* ===== איך זה עובד? (רקע תכלת) ===== */}
+      <section id="how" className="bg-sky-50 py-14 md:py-16 border-t border-slate-100">
         <div className="mx-auto max-w-6xl px-4">
           <h3 className="text-3xl md:text-4xl font-extrabold text-center">אז איך זה עובד?</h3>
 
@@ -173,14 +188,14 @@ export default function Servicez() {
           </div>
 
           <div className="mt-6 grid gap-6 md:grid-cols-2">
-            <Step number={4} title="ליווי אישי" text="השיעור לא נגמר אחרי 50 דקות — זמינים 24/7 לשאלות" />
+            <Step number={4} title="ליווי אישי" text="השיעור לא נגמר אחרי 50 דקות, זמינים 24/7 לשאלות" />
             <Step number={5} title="מצליחים!" text="ביטחון עצמי, כלים להתמודדות וציונים גבוהים" />
           </div>
         </div>
       </section>
 
       {/* ===== איך מתחילים? ===== */}
-      <section id="start" className="bg-gradient-to-b from-sky-600 to-sky-700 text-white py-20">
+      <section id="start" className="bg-gradient-to-b from-sky-600 to-sky-700 text-white py-14 md:py-16">
         <div className="mx-auto max-w-6xl px-4">
           <h3 className="text-3xl md:text-4xl font-extrabold text-center">איך מתחילים?</h3>
 
@@ -217,10 +232,10 @@ export default function Servicez() {
         </div>
       </section>
 
-      {/* ===== טופס יצירת קשר ===== */}
-      <section id="contact" className="bg-white py-20">
+      {/* ===== יצירת קשר ===== */}
+      <section id="contact" className="bg-white py-14 md:py-16">
         <div className="mx-auto max-w-2xl px-4">
-          <h4 className="text-2xl md:text-3xl font-extrabold text-center">טופס קצר, דקה וסיימנו</h4>
+          <h4 className="text-2xl md:text-3xl font-extrabold text-center">מלאו את הטופס ונחזור אליכם בהקדם</h4>
 
           <form
             className="mt-8 space-y-5"
@@ -286,15 +301,15 @@ export default function Servicez() {
         </div>
       </footer>
 
-      {/* ===== כפתור צף במובייל ===== */}
+      {/* ===== כפתור צף (מוקטן 20–30%, טקסט מודגש יותר) ===== */}
       <a
         href="#contact"
-        className={`sm:hidden fixed right-3 top-[78%] z-50 inline-flex items-center gap-2 rounded-full bg-sky-400 px-4 py-3 text-white font-semibold shadow-lg transition-all ${
+        className={`sm:hidden fixed right-3 top-[78%] z-50 inline-flex items-center gap-2 rounded-full bg-sky-400 px-3 py-2 text-white font-bold text-sm md:text-base shadow-lg transition-all ${
           showFloat ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
-        aria-label="קביעת שיעור מהיר"
+        aria-label="לקביעת שיעור"
       >
-        קביעת שיעור מהיר <ArrowRight className="h-5 w-5" />
+        לקביעת שיעור <ArrowRight className="h-4 w-4" />
       </a>
     </main>
   );
