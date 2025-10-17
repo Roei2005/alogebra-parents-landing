@@ -59,7 +59,8 @@ export default function Servicez() {
           <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900">
             החומר בבית הספר נהיה קשה..
           </h1>
-          <h2 className="mt-2 text-2xl md:text-[2rem] font-extrabold text-slate-900">
+          {/* שינוי 2: הדגשת h2 */}
+          <h2 className="mt-2 text-2xl md:text-[2rem] font-extrabold text-slate-900 font-black">
             ואתם כבר לא מצליחים לעזור לילד בשיעורים?
           </h2>
 
@@ -67,16 +68,21 @@ export default function Servicez() {
             הגעתם למקום הנכון.
           </p>
 
-          <p className="mt-3 max-w-3xl mx-auto text-slate-600 text-[1.075rem] leading-relaxed">
-            אלוגברה זה לא עוד מורה פרטי יקר. בחצי דקה של קריאה תגלו את השיטה
-            שעזרה למאות תלמידים לשפר את הציונים שלהם, לבנות ביטחון עצמי ולקבל
+          {/* שינוי 2: הדגשת מילים חשובות ופיצול שורות */}
+          <p className="mt-3 max-w-3xl mx-auto text-slate-600 text-[1.125rem] md:text-[1.075rem] leading-relaxed">
+            <span className="font-extrabold text-slate-900">אלוגברה</span> זה לא עוד מורה פרטי יקר.
+            <br className="block"/>
+            <span className="font-extrabold text-sky-700">ב-30 שניות של קריאה</span> תגלו את השיטה
+            שעזרה למאות תלמידים לשפר את הציונים שלהם,
+            <br className="block"/>
+            לבנות <span className="font-extrabold text-slate-900">ביטחון עצמי</span> ולקבל
             כלים לחיים.
           </p>
 
           {/* CTA יחיד - כחול מלא, עם קישור לסקשן הבא (#system) */}
           <div className="mt-8 flex justify-center">
             <a
-              href="#system"
+              href="#system" {/* ✅ תיקון נתיב לסקשן הבא */}
               className="inline-flex items-center gap-2 rounded-2xl border bg-sky-600 px-6 py-3 text-white font-semibold shadow-lg hover:bg-sky-700 transition" 
             >
               איך זה עובד? <ArrowDown className="h-5 w-5" />
@@ -112,8 +118,11 @@ export default function Servicez() {
               <h4 className="mt-8 text-2xl font-extrabold text-center md:text-right text-slate-900">
                 התוצאה?
               </h4>
+              {/* שינוי 3: פיצול שורה */}
               <p className="mt-2 text-center md:text-right text-lg text-slate-700 leading-relaxed">
-                הביטחון יורד, הילד בתחושה שמתמטיקה זה "לא בשבילו", והפחד מתגבר.
+                הביטחון יורד, הילד בתחושה שמתמטיקה זה
+                <br className="block"/>
+                "לא בשבילו", והפחד מתגבר.
               </p>
             </div>
 
@@ -128,9 +137,9 @@ export default function Servicez() {
             </figure>
           </div>
 
-          {/* כותרת מחברת בין הסקשנים */}
+          {/* שינוי 4: הגדלת הכתב לבולטות מרבית */}
           <div className="mt-8">
-            <p className="text-center text-2xl md:text-3xl font-extrabold text-sky-700">
+            <p className="text-center text-3xl md:text-5xl font-extrabold text-sky-700">
               זה לא חייב להיות ככה.
             </p>
           </div>
@@ -139,27 +148,37 @@ export default function Servicez() {
 
       {/* ---------- הסיפור האישי ---------- */}
       <section id="about" className="bg-sky-50 py-12">
-        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+        {/* שינוי 5: הגדלת מרווח אנכי בין שורות (leading-loose) */}
+        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center leading-loose">
           <div>
+            {/* שינוי 5: כותרת קצרה יותר */}
             <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 text-center md:text-right">
-              נעים להכיר, רועי מזור
+              נעים להכיר, רועי
             </h3>
 
-            {/* פסקת סיפור אישי 1 - טקסט מעודכן */}
-            <p className="mt-4 text-lg md:text-xl text-slate-700 text-center md:text-right leading-relaxed">
-              תאמינו או לא, עד גיל 16 פחדתי ממתמטיקה.. ראיתי שחור במבחנים והציונים לא היו בשיא.
+            {/* שינוי 1 ו-5: טקסט מעודכן, פיצול שורות אסתטי */}
+            <p className="mt-4 text-lg md:text-xl text-slate-700 text-center md:text-right">
+              תאמינו או לא, עד גיל 16 פחדתי ממתמטיקה..
+              <br className="block"/>
+              ראיתי שחור במבחנים והציונים לא היו בשיא.
+              <br className="block"/>
               בכיתה יא' לקראת הבגרויות, הכל השתנה.
+              <br className="block"/>
               הגיעה מורה חדשה שגרמה לי להפוך מתלמיד שלא לומד לאחד שרק מחכה לשיעור הבא.
+              <br className="block"/>
               מאותו רגע התחיל מסע שמתפתח עד היום.
             </p>
 
-            {/* פסקת סיפור אישי 2 - טקסט מעודכן */}
-            <p className="mt-4 text-lg md:text-xl text-slate-700 text-center md:text-right leading-relaxed">
-              היום אני לקראת סיום תואר ראשון בהוראת מתמטיקה. אני מביא גישה
-              צעירה ושפה שמדברת אל תלמידים, וידע שמבוסס על מה שקורה בבתי הספר
-              בכל רגע נתון. מתמטיקה בשבילי היא קודם
+            <p className="mt-4 text-lg md:text-xl text-slate-700 text-center md:text-right">
+              היום אני לקראת סיום תואר ראשון בהוראת מתמטיקה.
+              <br className="block"/>
+              אני מביא גישה צעירה ושפה שמדברת אל תלמידים,
+              <br className="block"/>
+              וידע שמבוסס על מה שקורה בבתי הספר בכל רגע נתון.
+              <br className="block"/>
+              מתמטיקה בשבילי היא קודם
               <span className="font-extrabold text-slate-900">
-                שליחות - לעזור, לקדם, ולהצליח
+                {' '}שליחות - לעזור, לקדם, ולהצליח
               </span>
               .
             </p>
@@ -195,11 +214,12 @@ export default function Servicez() {
             </span>
           </p>
 
+          {/* שינוי 6: שינוי הבולטים לעיצוב יותר מיוחד (רקע תכלת וגבולות) */}
           <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-2">
-            <Bullet text="חיבור אנושי מהדקה הראשונה" />
-            <Bullet text="שיטה שמביאה תוצאות" />
-            <Bullet text="מעקב והתאמות בדרך" />
-            <Bullet text="תקשורת שקופה עם הורים" />
+            <StyledBullet text="חיבור אמיתי מהרגע הראשון" />
+            <StyledBullet text="שיטה מוכחת שמביאה ציונים גבוהים" />
+            <StyledBullet text="מעקב והתאמות קצב אישיות" />
+            <StyledBullet text="שקיפות מלאה מול ההורים" />
           </div>
 
           {/* מקום מומלץ לסרטוני/תמונות המלצה בעתיד */}
@@ -246,7 +266,8 @@ export default function Servicez() {
 
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             <div className="rounded-3xl border border-white/30 p-8 md:p-10 shadow-sm bg-white/0">
-              <h4 className="text-2xl font-bold">שיעור ניסיון</h4>
+              {/* שינוי 7: כותרת מודגשת */}
+              <h4 className="text-2xl font-bold text-white font-extrabold">קובעים שיעור ניסיון</h4>
               <p className="mt-3 text-lg md:text-xl text-sky-100 font-semibold">חינם, ללא התחייבות</p>
               <div className="mt-6 flex justify-center">
                 <a
@@ -259,8 +280,10 @@ export default function Servicez() {
             </div>
 
             <div className="rounded-3xl border border-white/30 p-8 md:p-10 shadow-sm bg-white/0">
-              <h4 className="text-2xl font-bold">לאחר מכן</h4>
-              <div className="mt-3 flex items-baseline justify-center gap-2">
+              {/* שינוי 7: כותרת מודגשת */}
+              <h4 className="text-2xl font-bold text-white font-extrabold">לאחר מכן</h4>
+              {/* שינוי 7: שימוש ב-whitespace-nowrap כדי למנוע פיצול שורה */}
+              <div className="mt-3 flex items-baseline justify-center gap-2 whitespace-nowrap">
                 <span className="text-5xl font-extrabold">100 ₪</span>
                 <span className="text-lg md:text-xl text-sky-100">לשיעור, זום אחד על אחד</span>
               </div>
@@ -351,14 +374,18 @@ export default function Servicez() {
 }
 
 /* ===== Components ===== */
-function Bullet({ text }: { text: string }) {
+// שינוי 6: קומפוננטה חדשה לבולטים מעוצבים
+function StyledBullet({ text }: { text: string }) {
   return (
-    <div className="flex items-start gap-2 text-slate-700">
-      <Check className="mt-0.5 h-5 w-5 flex-none text-sky-600" />
-      <span className="text-[1.05rem]">{text}</span>
+    <div className="flex items-start gap-3 rounded-xl border border-sky-200 bg-sky-50 p-4 shadow-sm text-slate-800">
+      <Check className="mt-0.5 h-6 w-6 flex-none text-sky-600" />
+      <span className="text-[1.1rem] font-medium">{text}</span>
     </div>
   );
 }
+
+// הקומפוננטה הישנה של Bullet נמחקה והוחלפה ב-StyledBullet
+
 function Step({
   number,
   title,
