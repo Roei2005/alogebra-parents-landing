@@ -32,17 +32,17 @@ export default function Servicez() {
       <Helmet>
         <html lang="he" dir="rtl" />
         <title>אלוגברה — שיעורי מתמטיקה פרטיים אונליין, בקצב של הילד</title>
-        
+
         {/* שיפור SEO: הוספת robots ו-canonical */}
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="[הכנס את כתובת ה-URL הסופית של האתר כאן]" />
-        
+
         <meta
           name="description"
           content="אלוגברה: מתמטיקה בגובה העיניים. שיעורים פרטיים בזום, אחד על אחד, שיטה שמביאה תוצאות, ליווי בין שיעורים וביטחון שעולה. שיעור ניסיון חינם."
         />
         <meta name="keywords" content="מורה פרטי למתמטיקה, שיעורים פרטיים אונליין, מתמטיקה זום, חטיבה, תיכון, בגרות במתמטיקה" />
-        
+
         {/* שיפור OG: הוספת og:locale */}
         <meta property="og:locale" content="he_IL" />
         <meta property="og:title" content="אלוגברה — שיעורי מתמטיקה פרטיים אונליין" />
@@ -80,8 +80,9 @@ export default function Servicez() {
           </p>
 
           <div className="mt-8 flex justify-center">
+            {/* קישור לסקשן הבא */}
             <a
-              href="#system" 
+              href="#system"
               className="inline-flex items-center gap-2 rounded-2xl border bg-sky-600 px-6 py-3 text-white font-semibold shadow-lg hover:bg-sky-700 transition" 
             >
               איך זה עובד? <ArrowDown className="h-5 w-5" />
@@ -305,7 +306,7 @@ export default function Servicez() {
       {/* ---------- טופס ---------- */}
       <section id="contact" className="bg-white py-12">
         <div className="mx-auto max-w-2xl px-4">
-          <h4 className="text-2xl md:text-3xl font-extrabold text-center">
+          <h4 className="text-2xl md:text-3xl font-extrabולד text-center">
             מלאו את הטופס ונחזור אליכם בהקדם
           </h4>
 
