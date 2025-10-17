@@ -6,6 +6,7 @@ import {
   Check,
   ArrowRight,
   ArrowDown,
+  MessageSquare, // אייקון לצ'אט/וואטסאפ
 } from "lucide-react";
 
 // ❌ שורות הייבוא של התמונות נמחקו כדי למנוע שגיאות בנייה.
@@ -26,8 +27,15 @@ export default function Servicez() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // ✅ קישור וואטסאפ בטוח עם קידוד מלא של ההודעה
+  const waMsg = encodeURIComponent(
+    "היי, אשמח לפרטים נוספים לגבי השיעור ניסיון בחינם לילד/ה שלי"
+  );
+  const waHref = `https://wa.me/972536200289?text=${waMsg}`;
+
   return (
-    <main dir="rtl" className="min-h-screen bg-white text-slate-900">
+    // ⚠️ שינוי: הגברת עובי הפונט הגלובלי (font-medium)
+    <main dir="rtl" className="min-h-screen bg-white text-slate-900 font-medium">
       {/* ---------- SEO (שיפורים טכניים) ---------- */}
       <Helmet>
         <html lang="he" dir="rtl" />
@@ -41,11 +49,17 @@ export default function Servicez() {
           name="description"
           content="אלוגברה: מתמטיקה בגובה העיניים. שיעורים פרטיים בזום, אחד על אחד, שיטה שמביאה תוצאות, ליווי בין שיעורים וביטחון שעולה. שיעור ניסיון חינם."
         />
-        <meta name="keywords" content="מורה פרטי למתמטיקה, שיעורים פרטיים אונליין, מתמטיקה זום, חטיבה, תיכון, בגרות במתמטיקה" />
+        <meta
+          name="keywords"
+          content="מורה פרטי למתמטיקה, שיעורים פרטיים אונליין, מתמטיקה זום, חטיבה, תיכון, בגרות במתמטיקה"
+        />
 
         {/* שיפור OG: הוספת og:locale */}
         <meta property="og:locale" content="he_IL" />
-        <meta property="og:title" content="אלוגברה — שיעורי מתמטיקה פרטיים אונליין" />
+        <meta
+          property="og:title"
+          content="אלוגברה — שיעורי מתמטיקה פרטיים אונליין"
+        />
         <meta
           property="og:description"
           content="מתמטיקה בקצב שמתאים לילד שלכם, עם ליווי אישי ושיטה שעובדת. שיעור ניסיון בחינם."
@@ -59,31 +73,31 @@ export default function Servicez() {
           <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900">
             החומר בבית הספר נהיה קשה..
           </h1>
-          {/* שינוי 2: הדגשת h2 */}
-          <h2 className="mt-2 text-2xl md:text-[2rem] font-extrabold text-slate-900 font-black">
-            ואתם כבר לא מצליחים לעזור לילד בשיעורים?
+
+          {/* BOLD והדגשת "לא מצליחים" */}
+          <h2 className="mt-2 text-2xl md:text-[2rem] font-extrabold text-slate-900">
+            ואתם כבר <span className="font-extrabold text-red-600">לא מצליחים</span> לעזור לילד בשיעורים?
           </h2>
 
-          <p className="mt-5 text-xl md:text-2xl font-extrabold text-sky-700">
+          {/* הגדלת הכתב של "הגעתם למקום הנכון" */}
+          <p className="mt-5 text-2xl md:text-3xl font-extrabold text-sky-700">
             הגעתם למקום הנכון.
           </p>
 
-          {/* שינוי 2: הדגשת מילים חשובות ופיצול שורות */}
+          {/* הדגשת מילים חשובות ופיצול שורות */}
           <p className="mt-3 max-w-3xl mx-auto text-slate-600 text-[1.125rem] md:text-[1.075rem] leading-relaxed">
             <span className="font-extrabold text-slate-900">אלוגברה</span> זה לא עוד מורה פרטי יקר.
-            <br className="block"/>
-            <span className="font-extrabold text-sky-700">ב-30 שניות של קריאה</span> תגלו את השיטה
-            שעזרה למאות תלמידים לשפר את הציונים שלהם,
-            <br className="block"/>
-            לבנות <span className="font-extrabold text-slate-900">ביטחון עצמי</span> ולקבל
-            כלים לחיים.
+            <br className="block" />
+            <span className="font-extrabold text-sky-700">ב-30 שניות של קריאה</span> תגלו את השיטה שעזרה למאות תלמידים לשפר את הציונים שלהם,
+            <br className="block" />
+            לבנות <span className="font-extrabold text-slate-900">ביטחון עצמי</span> ולקבל כלים לחיים.
           </p>
 
+          {/* ✅ קישור לסקשן הבא */}
           <div className="mt-8 flex justify-center">
-            {/* קישור לסקשן הבא */}
             <a
               href="#system"
-              className="inline-flex items-center gap-2 rounded-2xl border bg-sky-600 px-6 py-3 text-white font-semibold shadow-lg hover:bg-sky-700 transition" 
+              className="inline-flex items-center gap-2 rounded-2xl border bg-sky-600 px-6 py-3 text-white font-semibold shadow-lg hover:bg-sky-700 transition"
             >
               איך זה עובד? <ArrowDown className="h-5 w-5" />
             </a>
@@ -118,10 +132,10 @@ export default function Servicez() {
               <h4 className="mt-8 text-2xl font-extrabold text-center md:text-right text-slate-900">
                 התוצאה?
               </h4>
-              {/* שינוי 3: פיצול שורה */}
+
               <p className="mt-2 text-center md:text-right text-lg text-slate-700 leading-relaxed">
                 הביטחון יורד, הילד בתחושה שמתמטיקה זה
-                <br className="block"/>
+                <br className="block" />
                 "לא בשבילו", והפחד מתגבר.
               </p>
             </div>
@@ -137,7 +151,7 @@ export default function Servicez() {
             </figure>
           </div>
 
-          {/* שינוי 4: הגדלת הכתב לבולטות מרבית */}
+          {/* הגדלת כתב לבולטות */}
           <div className="mt-8">
             <p className="text-center text-3xl md:text-5xl font-extrabold text-sky-700">
               זה לא חייב להיות ככה.
@@ -148,39 +162,21 @@ export default function Servicez() {
 
       {/* ---------- הסיפור האישי ---------- */}
       <section id="about" className="bg-sky-50 py-12">
-        {/* שינוי 5: הגדלת מרווח אנכי בין שורות (leading-loose) */}
+        {/* הגדלת מרווח שורות (leading-loose) */}
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center leading-loose">
           <div>
-            {/* שינוי 5: כותרת קצרה יותר */}
             <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 text-center md:text-right">
               נעים להכיר, רועי
             </h3>
 
-            {/* שינוי 1 ו-5: טקסט מעודכן, פיצול שורות אסתטי */}
             <p className="mt-4 text-lg md:text-xl text-slate-700 text-center md:text-right">
-              תאמינו או לא, עד גיל 16 פחדתי ממתמטיקה..
-              <br className="block"/>
-              ראיתי שחור במבחנים והציונים לא היו בשיא.
-              <br className="block"/>
-              בכיתה יא' לקראת הבגרויות, הכל השתנה.
-              <br className="block"/>
-              הגיעה מורה חדשה שגרמה לי להפוך מתלמיד שלא לומד לאחד שרק מחכה לשיעור הבא.
-              <br className="block"/>
-              מאותו רגע התחיל מסע שמתפתח עד היום.
+              תאמינו או לא, עד גיל 16 פחדתי ממתמטיקה.. ראיתי שחור במבחנים והציונים לא היו בשיא.
+              בכיתה יא' לקראת הבגרויות, הכל השתנה. הגיעה מורה חדשה שגרמה לי להפוך מתלמיד שלא לומד לאחד שרק מחכה לשיעור הבא. מאותו רגע התחיל מסע שמתפתח עד היום.
             </p>
 
             <p className="mt-4 text-lg md:text-xl text-slate-700 text-center md:text-right">
-              היום אני לקראת סיום תואר ראשון בהוראת מתמטיקה.
-              <br className="block"/>
-              אני מביא גישה צעירה ושפה שמדברת אל תלמידים,
-              <br className="block"/>
-              וידע שמבוסס על מה שקורה בבתי הספר בכל רגע נתון.
-              <br className="block"/>
-              מתמטיקה בשבילי היא קודם
-              <span className="font-extrabold text-slate-900">
-                {' '}שליחות - לעזור, לקדם, ולהצליח
-              </span>
-              .
+              היום אני לקראת סיום תואר ראשון בהוראת מתמטיקה. אני מביא גישה צעירה ושפה שמדברת אל תלמידים, וידע שמבוסס על מה שקורה בבתי הספר בכל רגע נתון. מתמטיקה בשבילי היא קודם
+              <span className="font-extrabold text-slate-900">{' '}שליחות - לעזור, לקדם, ולהצליח</span>.
             </p>
           </div>
 
@@ -209,12 +205,11 @@ export default function Servicez() {
             </span>
             <br className="sm:hidden" />
             <span className="block mt-3">
-              אני יודע איפה התלמידים נמצאים היום, מה מצופה מהם, ואיך להסביר בצורה
-              ברורה שעובדת.
+              אני יודע איפה התלמידים נמצאים היום, מה מצופה מהם, ואיך להסביר בצורה ברורה שעובדת.
             </span>
           </p>
 
-          {/* שינוי 6: שינוי הבולטים לעיצוב יותר מיוחד (רקע תכלת וגבולות) */}
+          {/* בולטים מעוצבים */}
           <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-2">
             <StyledBullet text="חיבור אמיתי מהרגע הראשון" />
             <StyledBullet text="שיטה מוכחת שמביאה ציונים גבוהים" />
@@ -222,7 +217,7 @@ export default function Servicez() {
             <StyledBullet text="שקיפות מלאה מול ההורים" />
           </div>
 
-          {/* מקום מומלץ לסרטוני/תמונות המלצה בעתיד */}
+          {/* מקום לתמונת/וידאו המלצות */}
           <div className="mt-10 aspect-[16/9] rounded-2xl border border-dashed border-slate-300 flex items-center justify-center text-slate-400">
             [ מקום לתמונה או סרטוני המלצה ]
           </div>
@@ -239,14 +234,14 @@ export default function Servicez() {
         </div>
       </section>
 
-      {/* ---------- איך זה עובד? ---------- */}
+      {/* ---------- אז איך זה עובד? ---------- */}
       <section id="offer" className="bg-white py-12">
         <div className="mx-auto max-w-6xl px-4">
           <h3 className="text-3xl md:text-4xl font-extrabold text-center">
             אז איך זה עובד?
           </h3>
 
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
             <Step number={1} title="שיחת היכרות קצרה" text="מזהים את הקשיים ונקודת הפתיחה" />
             <Step number={2} title="שיעור ניסיון בחינם" text="בודקים שיש חיבור, מתנסים ללא תשלום" />
             <Step number={3} title="תוכנית מותאמת אישית" text="יעדים ברורים, תרגול ומעקב" />
@@ -265,8 +260,8 @@ export default function Servicez() {
           <h3 className="text-3xl md:text-4xl font-extrabold text-center">איך מתחילים?</h3>
 
           <div className="mt-8 grid gap-6 md:grid-cols-2">
+            {/* קובייה 1: שיעור ניסיון */}
             <div className="rounded-3xl border border-white/30 p-8 md:p-10 shadow-sm bg-white/0">
-              {/* שינוי 7: כותרת מודגשת */}
               <h4 className="text-2xl font-bold text-white font-extrabold">קובעים שיעור ניסיון</h4>
               <p className="mt-3 text-lg md:text-xl text-sky-100 font-semibold">חינם, ללא התחייבות</p>
               <div className="mt-6 flex justify-center">
@@ -279,23 +274,27 @@ export default function Servicez() {
               </div>
             </div>
 
-            <div className="rounded-3xl border border-white/30 p-8 md:p-10 shadow-sm bg-white/0">
-              {/* שינוי 7: כותרת מודגשת */}
+            {/* קובייה 2: לאחר מכן */}
+            <div className="rounded-3xl border border-white/30 p-8 md:p-10 shadow-sm bg-white/0 text-right">
               <h4 className="text-2xl font-bold text-white font-extrabold">לאחר מכן</h4>
-              {/* שינוי 7: שימוש ב-whitespace-nowrap כדי למנוע פיצול שורה */}
-              <div className="mt-3 flex items-baseline justify-center gap-2 whitespace-nowrap">
+
+              <div className="mt-3 flex items-baseline justify-end gap-2 whitespace-nowrap">
                 <span className="text-5xl font-extrabold">100 ₪</span>
-                <span className="text-lg md:text-xl text-sky-100">לשיעור, זום אחד על אחד</span>
               </div>
+
+              <p className="text-lg md:text-xl text-sky-100 mt-3 font-semibold">
+                לשיעור אחד על אחד: זום <span className="font-extrabold text-white/80">או</span> פרונטלי (בנתניה)
+              </p>
+
               <ul className="mt-5 space-y-2 text-lg md:text-xl text-sky-100">
-                <li className="flex items-center justify-center gap-2">
-                  <Check className="h-5 w-5 text-white" /> ליווי אישי בין שיעורים
+                <li className="flex items-center justify-end gap-2">
+                  ליווי אישי בין שיעורים <Check className="h-5 w-5 text-white" />
                 </li>
-                <li className="flex items-center justify-center gap-2">
-                  <Check className="h-5 w-5 text-white" /> מעקב התקדמות להורים
+                <li className="flex items-center justify-end gap-2">
+                  מעקב התקדמות להורים <Check className="h-5 w-5 text-white" />
                 </li>
-                <li className="flex items-center justify-center gap-2">
-                  <Check className="h-5 w-5 text-white" /> ליווי 24/7
+                <li className="flex items-center justify-end gap-2">
+                  ליווי 24/7 <Check className="h-5 w-5 text-white" />
                 </li>
               </ul>
             </div>
@@ -306,7 +305,7 @@ export default function Servicez() {
       {/* ---------- טופס ---------- */}
       <section id="contact" className="bg-white py-12">
         <div className="mx-auto max-w-2xl px-4">
-          <h4 className="text-2xl md:text-3xl font-extrabולד text-center">
+          <h4 className="text-2xl md:text-3xl font-extrabold text-center">
             מלאו את הטופס ונחזור אליכם בהקדם
           </h4>
 
@@ -359,12 +358,35 @@ export default function Servicez() {
         </div>
       </section>
 
+      {/* ---------- סקשן חדש: וואטסאפ ---------- */}
+      <section className="bg-sky-50 py-10">
+        <div className="mx-auto max-w-2xl px-4 text-center">
+          <h4 className="text-2xl font-extrabold text-slate-900">
+            יש לכם עוד שאלות?
+          </h4>
+          <p className="mt-3 text-lg text-slate-700">
+            צרו איתנו קשר בוואטספ ונשמח לענות לכם!
+          </p>
+
+          <div className="mt-6 flex justify-center">
+            {/* קישור לוואטסאפ עם טקסט מקודד */}
+            <a
+              href={waHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl bg-green-500 px-6 py-3 text-white font-semibold shadow-lg hover:bg-green-600 transition"
+            >
+              <MessageSquare className="h-5 w-5" />
+              שלחו הודעה בוואטסאפ
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ---------- כפתור צף בנייד בלבד ---------- */}
       <a
         href="#contact"
-        className={`sm:hidden fixed right-3 top-[78%] z-50 inline-flex items-center gap-2 rounded-full bg-sky-500/95 px-3 py-2 text-white text-sm font-semibold shadow-lg transition-all ${
-          showFloat ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        className={`sm:hidden fixed right-3 top-[78%] z-50 inline-flex items-center gap-2 rounded-full bg-sky-500/95 px-3 py-2 text-white text-sm font-semibold shadow-lg transition-all ${showFloat ? "opacity-100" : "opacity-0 pointer-events-none"}`}
         aria-label="לקביעת שיעור"
       >
         לקביעת שיעור
@@ -374,7 +396,6 @@ export default function Servicez() {
 }
 
 /* ===== Components ===== */
-// שינוי 6: קומפוננטה חדשה לבולטים מעוצבים
 function StyledBullet({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-3 rounded-xl border border-sky-200 bg-sky-50 p-4 shadow-sm text-slate-800">
@@ -383,8 +404,6 @@ function StyledBullet({ text }: { text: string }) {
     </div>
   );
 }
-
-// הקומפוננטה הישנה של Bullet נמחקה והוחלפה ב-StyledBullet
 
 function Step({
   number,
