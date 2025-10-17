@@ -79,7 +79,6 @@ export default function Servicez() {
             כלים לחיים.
           </p>
 
-          {/* CTA יחיד - כחול מלא, עם קישור לסקשן הבא (#system) */}
           <div className="mt-8 flex justify-center">
             <a
               href="#system" 
