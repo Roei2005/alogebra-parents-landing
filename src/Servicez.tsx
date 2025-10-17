@@ -33,6 +33,42 @@ export default function Servicez() {
   );
   const waHref = `https://wa.me/972536200289?text=${waMsg}`;
 
+  // === נתוני דמה/התחלה לקולאז' (ריק כרגע) ===
+  // כשתהיה מוכן:
+  // 1. צור תיקייה /public/results/
+  // 2. שמור שם צילומי מסך כ-webp (רוחב 900–1400px, גודל 100–250KB לתמונה)
+  // 3. הוסף לכאן אובייקטים בסגנון:
+  //    { src: "/results/parent-msg-1.webp", alt: "הורה: תודה, הציון עלה ל-86" },
+  const resultsItems: CollageItem[] = [
+    // דוגמאות לשימוש עתידי:
+    // { src: "/results/grade-100-a.webp", alt: "תוצאה: 100 בבחינה" },
+    // { src: "/results/parent-msg-1.webp", alt: "הורה: תודה, קפיצה בביטחון" },
+  ];
+
+  // === נתוני FAQ ===
+  const faqItems: FAQItem[] = [
+    {
+      q: "תוך כמה זמן רואים שיפור?",
+      a: "בדרך כלל אחרי 4–6 שיעורים כבר מרגישים שינוי: הילד/ה עונה יותר בכיתה, פחות חשש משאלות, וברוב המקרים גם הציון הראשון שאחרי מתחיל לעלות. שיפור גדול מגיע עם התמדה של חודש–חודשיים."
+    },
+    {
+      q: "השיעורים בזום או פרונטלי?",
+      a: "מה שנוח לכם: זום הוא ברירת המחדל ונותן גמישות מעולה. באזור נתניה אפשר גם פרונטלי. התוכן והאיכות זהים – אנחנו מתאימים את הקצב והדרך בדיוק לילד/ה."
+    },
+    {
+      q: "מה אורך השיעור ומה קורה בפנים?",
+      a: "50–60 דקות. מתחילים בבדיקה קצרה של חומר קודם, מתרגלים נקודות חלשות, ומסיימים במשימות קצרות וקלילות להמשך. המטרה: לצאת עם תחושת הצלחה ולא עם עומס."
+    },
+    {
+      q: "יש ליווי בין השיעורים?",
+      a: "כן. זמין/ה בווטסאפ לשאלות דחופות ול'נתקעתי' קטן באמצע השבוע. לפעמים נשלח גם דוגמה מצולמת או פתרון מקוצר כדי לשחרר פקק."
+    },
+    {
+      q: "למי זה מתאים?",
+      a: "כיתות ז׳–י״ב, 4–5 יחידות. גם למי שמרגיש/ה ש'מתמטיקה זה לא בשבילי'—שם אנחנו עובדים על ביטחון, שפה פשוטה, והרגלי למידה שישארו גם הלאה."
+    }
+  ];
+
   return (
     // ⚠️ שינוי: הגברת עובי הפונט הגלובלי (font-medium)
     <main dir="rtl" className="min-h-screen bg-white text-slate-900 font-medium">
@@ -51,7 +87,7 @@ export default function Servicez() {
         />
         <meta
           name="keywords"
-          content="מורה פרטי למתמטיקה, שיעורים פרטיים אונליין, מתמטיקה זום, חטיבה, תיכון, בגרות במתמטיקה"
+          content="מורה פרטי למתמטכה, שיעורים פרטיים אונליין, מתמטיקה זום, חטיבה, תיכון, בגרות במתמטיקה"
         />
 
         {/* שיפור OG: הוספת og:locale */}
@@ -112,7 +148,7 @@ export default function Servicez() {
             מערכת החינוך כנראה עדיין לא הבינה שהעולם השתנה..
           </h3>
 
-          <div className="mt-8 grid md:grid-cols-2 gap-10 items-center">
+        <div className="mt-8 grid md:grid-cols-2 gap-10 items-center">
             <div>
               <ul className="space-y-4 text-lg md:text-xl text-slate-700 leading-relaxed">
                 <li className="flex items-start gap-3">
@@ -201,7 +237,8 @@ export default function Servicez() {
 
           <p className="mt-3 max-w-3xl mx-auto text-center text-[1.08rem] md:text-[1.12rem] text-slate-800">
             <span className="font-extrabold text-xl md:text-2xl">
-              חלק יחשבו שהגיל הוא חיסרון, האמת שזה היתרון הכי גדול שלי
+              {/* שינוי הנוסח לפי בקשתך */}
+              חלק יחשבו שהגיל שלי הוא חיסרון, האמת שזה היתרון הכי גדול שלי
             </span>
             <br className="sm:hidden" />
             <span className="block mt-3">
@@ -217,7 +254,7 @@ export default function Servicez() {
             <StyledBullet text="שקיפות מלאה מול ההורים" />
           </div>
 
-          {/* מקום לתמונת/וידאו המלצות */}
+          {/* מקום לתמונת/וידאו המלצה */}
           <div className="mt-10 aspect-[16/9] rounded-2xl border border-dashed border-slate-300 flex items-center justify-center text-slate-400">
             [ מקום לתמונה או סרטוני המלצה ]
           </div>
@@ -234,6 +271,13 @@ export default function Servicez() {
         </div>
       </section>
 
+      {/* ---------- התוצאות מדברות (קולאז' תמונות המלצות) ---------- */}
+      <ResultsCollage
+        title="התוצאות מדברות בפני עצמן"
+        subtitle="הורים ותלמידים משתפים בתהליך באלוגברה"
+        items={resultsItems} // ⚠️ כרגע ריק. ראה ההערות למעלה איך להוסיף תמונות
+      />
+
       {/* ---------- אז איך זה עובד? ---------- */}
       <section id="offer" className="bg-white py-12">
         <div className="mx-auto max-w-6xl px-4">
@@ -241,7 +285,7 @@ export default function Servicez() {
             אז איך זה עובד?
           </h3>
 
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
             <Step number={1} title="שיחת היכרות קצרה" text="מזהים את הקשיים ונקודת הפתיחה" />
             <Step number={2} title="שיעור ניסיון בחינם" text="בודקים שיש חיבור, מתנסים ללא תשלום" />
             <Step number={3} title="תוכנית מותאמת אישית" text="יעדים ברורים, תרגול ומעקב" />
@@ -253,6 +297,9 @@ export default function Servicez() {
           </div>
         </div>
       </section>
+
+      {/* ---------- FAQ ---------- */}
+      <FAQ title="שאלות נפוצות של הורים" items={faqItems} />
 
       {/* ---------- איך מתחילים? (Pricing) ---------- */}
       <section id="pricing" className="bg-gradient-to-b from-sky-600 to-sky-700 text-white py-12">
@@ -396,6 +443,116 @@ export default function Servicez() {
 }
 
 /* ===== Components ===== */
+
+/* ===== ResultsCollage (קולאז' תוצאות) ===== */
+type CollageItem = { src: string; alt: string; width?: number; height?: number };
+
+function ResultsCollage({
+  title,
+  subtitle,
+  items,
+}: {
+  title: string;
+  subtitle: string;
+  items: CollageItem[];
+}) {
+  const hasItems = items && items.length > 0;
+  return (
+    <section className="bg-white py-12">
+      <div className="mx-auto max-w-6xl px-4">
+        <h3 className="text-2xl md:text-3xl font-extrabold text-center text-slate-900">
+          {title}
+        </h3>
+        <p className="mt-2 text-lg md:text-xl text-center text-slate-700 font-semibold">
+          {subtitle}
+        </p>
+
+        {/* אם עדיין אין תמונות — מציגים Placeholder מסודר עם הנחיות */}
+        {!hasItems ? (
+          <div className="mt-8 rounded-2xl border-2 border-dashed border-slate-300 p-6 text-center text-slate-500">
+            <p className="font-semibold">כאן יופיע קולאז' של תמונות המלצות</p>
+            <p className="mt-2 text-sm">
+              כדי להוסיף: שמרו תמונות ב&nbsp;<code className="bg-slate-100 px-1 rounded">/public/results/</code>&nbsp;
+              והוסיפו אותן למערך <code className="bg-slate-100 px-1 rounded">resultsItems</code> בראש הקובץ.
+            </p>
+            <p className="mt-1 text-sm">
+              מומלץ פורמט <b>webp</b>, רוחב 900–1400px, גודל 100–250KB לתמונה.
+            </p>
+          </div>
+        ) : (
+          <div className="mt-8 [direction:ltr]">
+            {/* Masonry קל עם CSS Columns (RTL לטקסט, LTR למבנה) */}
+            <div className="columns-2 sm:columns-3 lg:columns-4 gap-4 [direction:rtl]">
+              {items.map((it, i) => (
+                <figure
+                  key={i}
+                  className="mb-4 break-inside-avoid rounded-2xl bg-white p-2 ring-1 ring-sky-300/60 shadow-md"
+                >
+                  <img
+                    src={it.src}
+                    alt={it.alt}
+                    className="rounded-xl w-full h-auto object-cover"
+                    loading="lazy"
+                    decoding="async"
+                    width={it.width}
+                    height={it.height}
+                  />
+                </figure>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+/* ===== FAQ (שאלות נפוצות) ===== */
+type FAQItem = { q: string; a: string };
+
+function FAQ({ title, items }: { title: string; items: FAQItem[] }) {
+  return (
+    <section className="bg-sky-50 py-12">
+      <div className="mx-auto max-w-4xl px-4">
+        <h3 className="text-2xl md:text-3xl font-extrabold text-center text-slate-900">
+          {title}
+        </h3>
+
+        <div className="mt-8 space-y-3">
+          {items.map((it, idx) => (
+            <details
+              key={idx}
+              className="group rounded-2xl bg-white p-4 md:p-5 border border-slate-200 shadow-sm"
+            >
+              <summary className="flex cursor-pointer list-none items-start justify-between gap-3">
+                <h4 className="text-lg md:text-xl font-semibold text-slate-900">
+                  {it.q}
+                </h4>
+                <span className="shrink-0 rounded-full border border-slate-300 px-2 text-slate-600 text-sm">
+                  +
+                </span>
+              </summary>
+              <div className="mt-3 text-slate-700 leading-relaxed">
+                {it.a}
+              </div>
+            </details>
+          ))}
+        </div>
+
+        <div className="mt-8 flex justify-center">
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 rounded-xl bg-sky-600 px-6 py-3 text-white font-semibold shadow-sm hover:bg-sky-700 transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-600"
+          >
+            קובעים שיעור ניסיון בחינם
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ===== Bullet + Step ===== */
 function StyledBullet({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-3 rounded-xl border border-sky-200 bg-sky-50 p-4 shadow-sm text-slate-800">
